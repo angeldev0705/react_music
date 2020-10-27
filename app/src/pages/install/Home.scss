@@ -1,0 +1,246 @@
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  //background: red;
+  padding: 0;
+  //  background: #030e1b;
+  font-weight: lighter;
+  color: #fff;
+  //position: relative;
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  p {
+    padding: 5px;
+    margin: 0;
+  }
+
+  h1, h2, h3 {
+    margin: 3px;
+    font-size: 12px;
+    font-weight: lighter;
+
+  }
+}
+
+.centerContent {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.stepsContainer {
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
+  font-size: 15px !important;
+  li {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    clear: both;
+  }
+  img {
+    margin: 5px;
+  }
+}
+
+.videoContainer {
+  margin: 0 auto;
+  max-width: 600px;
+
+  .videoContent {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.snippet {
+  padding: 10px;
+  font-size: 16px;
+
+  margin: 7px;
+  background: rgba(black, 0.5);
+  border-radius: 4px;
+  display: inline-block;
+  font-weight: bold;
+
+  span {
+    color: rgba(white, 0.4);
+    font-weight: normal;
+    //font-size: 10px;
+    //align-items: center;
+  }
+}
+
+.tutorialContainer {
+  margin: 10px;
+}
+
+.tutorial {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+
+  .tutorialTitle {
+
+    font-size: 20px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  ul li a {
+
+    color: #fff;
+    text-decoration: underline;
+  }
+
+}
+
+.phone {
+  //background-color: red;
+}
+
+.noMobile {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 10px;
+  background: #30a4e1;
+  color: #fff;
+
+  a {
+    padding: 8px;
+    padding-bottom: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.fallbackContainer {
+  margin: 20px;
+  margin-top: 40px;
+}
+
+.fallbackMessage {
+  font-size: 12px;
+  padding: 4px;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.67);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 11px;
+  //padding: 10px;
+  //border-radius: 4px;
+  //background: #032e4c;
+  display: inline-block;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.installButton {
+
+  //text-transform: uppercase;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: #1dd749;
+  display: inline-flex;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  border: none;
+  color: #ffffff;
+  font-weight: normal;
+  line-height: 26px;
+
+  > .icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 24px;
+  }
+
+  > span {
+  }
+
+}
+
+.downloadButton {
+  text-decoration: none;
+  //text-transform: uppercase;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: #1dd749;
+  display: inline-flex;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  border: none;
+  color: #ffffff;
+  margin-bottom: 0;
+  line-height: 26px;
+  font-weight: normal;
+
+  > .icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 24px;
+  }
+
+  > span {
+  }
+
+}
+
+.downloadNote {
+  font-size: 12px;
+  opacity: 0.8;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  padding: 4px;
+  margin: 8px;
+  display: block;
+  padding-bottom: 2px;
+  font-size: 18px;
+  font-weight: bold
+}
+
+.logo {
+  padding: 10px;
+  padding-bottom: 2px;
+  height: 70px;
+}
+
+.seo {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 11px;
+  opacity: 0.6;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}

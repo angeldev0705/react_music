@@ -1,0 +1,75 @@
+.ads120x600 {
+  width: 120px;
+  height: 600px;
+  &:after {
+    content: 'ADS 120x600';
+  }
+}
+
+.ads160x600 {
+  width: 160px;
+  height: 600px;
+  &:after {
+    content: 'ADS 160x600';
+  }
+}
+
+.ads300x250 {
+  width: 300px;
+  height: 250px;
+  &:after {
+    content: 'ADS 300x250';
+  }
+}
+
+.ads320x50 {
+  width: 320px;
+  height: 50px;
+  &:after {
+    content: 'ADS 320x50';
+  }
+}
+
+.ads728x90 {
+  width: 728px;
+  height: 90px;
+  &:after {
+    content: 'ADS 728x90';
+  }
+}
+
+.ads234x60 {
+  width: 234px;
+  height: 60px;
+  &:after {
+    content: 'ADS 234x60';
+  }
+}
+
+.ads468x60 {
+  width: 468px;
+  height: 60px;
+  &:after {
+    content: 'ADS 468x60';
+  }
+
+}
+
+.ads {
+  background: #444 !important;
+  position: relative;
+  &:after {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    top: 30%;
+    flex: 1;
+    font-size: 24px;
+  }
+}
+

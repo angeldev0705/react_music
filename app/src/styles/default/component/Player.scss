@@ -1,0 +1,771 @@
+
+.player-background {
+
+  //transform: translateZ(0);
+  filter: blur(40px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  opacity: 0.2;
+
+  @media (max-width: $screen-sm) {
+    opacity: 0.3;
+    //margin-left: -25%;
+    //margin-top:-25%;
+    //height: 150%;
+    //width: 150%;
+  }
+}
+
+.player {
+  background: $borderBlocksColor;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+
+  .song-options {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0px;
+
+    .volume {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .more-option {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .song-option {
+
+      font-size: 12px;
+      vertical-align: middle;
+      border-radius: 6px;
+      top: -2px;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 4px 8px;
+      margin: 0 2px;
+
+      color: $primaryTextColor;
+      background: rgba($backgroundColor, 0.5);
+
+      &:hover {
+        background: $backgroundColor;
+        .icon {
+          color: $primaryColor;
+          opacity: 1;
+        }
+        .caption {
+          color: $textColor;
+
+        }
+      }
+
+      .icon {
+        font-size: 20px;
+        line-height: 20px;
+        color: $textSecondaryColor;
+        opacity: 1;
+        float: left;
+
+      }
+
+      .caption {
+        font-size: 12px;
+        line-height: 20px;
+        display: inline-block;
+        padding-left: 2px;
+        color: $textSecondaryColor;
+
+      }
+
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #000;
+
+    &.karaoke-on {
+      .song-info {
+        display: none;
+      }
+    }
+  }
+
+  &.full {
+
+    animation-name: fadeInUp;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    position: fixed;
+    .queue-list {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-top: 60px;
+      background: $backgroundColor;
+      margin: 0;
+    }
+
+    .song-info {
+      overflow: hidden;
+      margin: 0px;
+      padding: 20px;
+      padding-top: 40px;
+
+      .image {
+        //max-width: 300px;
+        //max-height: 300px;
+        //margin-right: 30px;
+        //margin-left: 30px;
+        //overflow: hidden;
+        //width: auto;
+        //height: auto;
+      }
+      .artist {
+        color: darken($primaryTextColor, 20%);
+
+        font-size: 18px;
+        line-height: 20px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        margin-top: 8px;
+      }
+      .song {
+        color: $primaryTextColor;
+        font-size: 18px;
+        padding-top: 6px;
+        line-height: 20px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      img {
+        //box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        max-width: 300px;
+        max-height: 300px;
+        padding-right: 30px;
+        padding-left: 30px;
+        width: auto;
+        height: auto;
+      }
+    }
+
+    .controls {
+      padding-bottom: 10px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+
+      background: linear-gradient($backgroundColor, $backgroundSecondaryColor);
+
+      .queue {
+
+        //display: none;
+      }
+
+      .volume {
+        display: none;
+      }
+    }
+  }
+
+  &.mini {
+
+    animation-name: slideInUp;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+
+    flex-direction: column;
+    background: $backgroundColor;
+    bottom: 0;
+    height: 55px;
+    position: fixed;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+    .controls {
+
+      margin: 0;
+      padding: 0;
+      .progress {
+        margin-bottom: 0;
+        border-radius: 4px;
+      }
+      .time {
+        display: none;
+      }
+      .progress-container {
+        height: 5px;
+      }
+
+      .primary {
+
+        float: right;
+        width: 120px;
+        text-align: center;
+        height: 50px;
+        z-index: 9999;
+        position: relative;
+      }
+
+      .primary {
+
+        .play, .pause, .stop {
+          i {
+            font-size: 40px !important;
+          }
+        }
+        .next, .prev {
+          i {
+            font-size: 30px !important;
+          }
+        }
+      }
+    }
+
+    .song-info {
+      margin: 0;
+      text-align: left;
+      margin-top: 0px;
+      margin-left: 0px;
+      cursor: pointer;
+      display: block;
+
+      .image {
+
+        float: left;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 5px;
+        width: 50px;
+        height: 50px;
+        text-align: left;
+        img {
+          width: 50px;
+          height: 50px;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      .artist {
+        margin-top: 0px;
+        font-size: 12px;
+      }
+      .song {
+        font-size: 14px;
+        padding-top: 6px;
+      }
+
+    }
+  }
+
+  .song-info {
+    position: relative;
+    text-align: center;
+    margin: 5px;
+    margin-top: 15px;
+    z-index: 2;
+
+    @media (max-width: $screen-sm) {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .options {
+
+      position: relative;
+      display: flex;
+      text-align: center;
+      padding-top: 5px;
+
+    }
+
+    &.disabled {
+      opacity: 0.8;
+    }
+
+    .image {
+      position: relative;
+
+      > .loading {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .spinner {
+          * {
+            background: #fff;
+          }
+          //margin: 0;
+        }
+
+        + img {
+          opacity: 0.5;
+        }
+      }
+
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
+      transition: opacity 0.3s;
+      //transform: translateZ(0);
+      //will-change: opacity;
+
+      @media (max-width: $screen-sm) {
+        box-shadow: none;
+      }
+
+      @media (min-width: $screen-lg) {
+        width: 250px;
+        height: 250px;
+      }
+
+      @media (min-width: $screen-xl) {
+        width: 280px;
+        height: 280px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .artist {
+      font-size: 14px;
+      color: $textSecondaryColor;
+      @include text-overflow();
+
+      a {
+        color: $textSecondaryColor;
+      }
+
+    }
+    .song {
+      font-size: 16px;
+      color: $textColor;
+      @include text-overflow();
+
+      a {
+        color: $textColor;
+      }
+    }
+  }
+
+  .controls {
+    z-index: 2;
+    position: relative;
+    clear: both;
+    display: block;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    margin-bottom: 20px;
+
+    @media (max-width: $screen-sm) {
+      margin: 0;
+      border-radius: 0;
+    }
+
+    &.disabled {
+      .primary,
+      .progress-container,
+      .time {
+        //opacity: 0.4 !important;
+      }
+    }
+
+    .volume {
+
+      .volume-container {
+        display: none;
+      }
+
+      &:hover {
+        .volume-container {
+          display: flex;
+        }
+      }
+    }
+
+    .volume-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 9;
+      height: 100%;
+      background: rgba($backgroundSecondaryColor, 0.98);
+      box-shadow: inset 0 0 2px rgba($backgroundSecondaryColor, 0.5);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .progress-container {
+        display: block;
+        flex: 4;
+
+      }
+
+      .control {
+        flex: 1;
+        color: $textSecondaryColor;
+        .active {
+          color: $primaryColor;
+
+          i {
+            text-shadow: 0px 0px 10px $primaryColor;
+          }
+
+        }
+
+      }
+
+      .volume-progress {
+        cursor: pointer;
+        height: 5px;
+        margin-left: 15px;
+        margin-right: 5px;
+        margin-bottom: 0;
+      }
+
+    }
+
+    .progress-container {
+      cursor: pointer;
+      display: block;
+      height: 8px;
+
+    }
+    .progress-bar {
+
+      box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.15) !important;
+    }
+    .progress {
+      display: block;
+      height: 5px;
+      margin-bottom: 5px;
+      background: rgba($secondaryColor, 0.5);
+      position: relative;
+
+      .current {
+        background-color: $primaryColor;
+        max-width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+      .loading,
+      .loaded,
+      .seeking {
+        background-color: transparent;
+        width: 100% !important;
+        position: absolute;
+        z-index: 1;
+        height: 5px;
+        left: 0;
+        top: 0;
+        max-width: 100%;
+      }
+
+      .seeking {
+        background-color: transparent;
+      }
+    }
+
+    .time {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      font-size: 13px;
+      color: $textSecondaryColor;
+
+      .current {
+        float: left;
+      }
+      .duration {
+        float: right;
+      }
+    }
+
+    .primary,
+    .options {
+      width: 100%;
+      display: flex;
+      flex: 1;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-top: 0px;
+      overflow: hidden;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+
+      @media (max-width: $screen-sm) {
+        margin-top: 0px;
+      }
+
+      li {
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        button {
+          background: transparent;
+          border: none;
+          box-shadow: none;
+
+          i {
+            vertical-align: middle;
+            font-size: 25px;
+            transition: all 0.2s;
+            //transform: translateZ(0);
+            //will-change: color,box-shadow,opacity;
+
+          }
+
+        }
+
+        &:hover, &.active, &:active, &:focus {
+          color: $textColor;
+          button {
+            box-shadow: none;
+          }
+        }
+
+        &:hover, &:focus {
+          button {
+            i {
+              text-shadow: 0px 0px 5px rgba($backgroundSecondaryColor, 0.8);
+            }
+          }
+        }
+        &.active, &:active {
+          button {
+            i {
+              text-shadow: 0px 0px 10px $primaryColor;
+            }
+          }
+        }
+        &.disabled {
+          //color: $textSecondaryColor !important;
+          opacity: 0.3 !important;
+          i {
+            text-shadow: none !important;
+          }
+        }
+      }
+    }
+
+    .primary {
+
+      .play, .pause, .stop {
+        i {
+          font-size: 60px !important;
+
+          @media (max-width: $screen-sm) {
+            font-size: 60px !important;
+          }
+        }
+      }
+      .next, .prev {
+        i {
+          font-size: 40px !important;
+
+          @media (max-width: $screen-sm) {
+            font-size: 40px !important;
+          }
+        }
+      }
+    }
+
+    .options {
+      margin-top: 10px;
+      color: $textSecondaryColor;
+
+      .random,
+      .repeat,
+      .karaoke,
+      .volume,
+      .queue {
+        &.active {
+          color: $primaryColor;
+        }
+      }
+    }
+
+  }
+
+  &:hover {
+
+    .queue-list {
+
+      > .options {
+        opacity: 1;
+
+      }
+    }
+  }
+  .queue-list {
+    z-index: 2;
+    position: relative;
+    clear: both;
+    background: rgba($backgroundColor, 0.2);
+    //padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-size: 12px;
+    overflow: hidden;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+
+    @media (min-width: $screen-lg) {
+      font-size: 13px;
+    }
+
+    > .list {
+      overflow: auto;
+      height: 100vh;
+    }
+
+    > .options {
+      //FIXME falta aca
+      display: none !important;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+      //transform: translateZ(0);
+      //will-change: opacity;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30px;
+      background: rgba(0, 0, 0, 0.5);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+
+    }
+
+    .song-item-queue {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      padding: 2px 5px 2px 5px;
+      cursor: pointer;
+      font-weight: normal;
+
+      &.active,
+      &:hover {
+
+        > * {
+          color: $primaryTextColor !important;
+        }
+
+        .time,
+        .options {
+          display: block;
+        }
+      }
+
+      &:hover {
+        background: $primaryColor;
+
+        .remove {
+          display: block !important;
+        }
+        .index {
+          display: none !important;
+        }
+      }
+
+      &.active {
+        background: $primaryColor;
+        //background: darken($backgroundSecondaryColor,20%);
+      }
+      .remove {
+        display: none;
+        color: red;
+        float: left;
+        line-height: 20px;
+        margin-left: -2px;
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-top: 2px;
+        border-radius: 4px;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.4);
+        }
+        i {
+          font-size: 12px;
+        }
+      }
+      .index {
+        color: $textSecondaryColor;
+        float: left;
+        line-height: 20px;
+        margin-left: -2px;
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-top: 2px;
+
+        //&:hover{
+        //  background: rgba(0,0,0,0.4);
+        //}
+        i {
+          font-size: 12px;
+        }
+      }
+      .time {
+        color: $textSecondaryColor;
+        display: none;
+      }
+      .song {
+        color: $textSecondaryColor;
+        @include text-overflow();
+        width: 100%;
+        text-align: left;
+        padding: 4px;
+      }
+      .options {
+        flex: 0 0 2em;
+        //display: none;
+        color: $textSecondaryColor;
+      }
+    }
+  }
+
+}

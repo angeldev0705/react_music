@@ -1,0 +1,72 @@
+
+.volume {
+
+  position: relative;
+
+  &.active {
+    .volume-container {
+      display: block;
+    }
+  }
+
+}
+
+.volume-container {
+  position: absolute;
+  left: 0px;
+  top: -115px;
+  width: 30px;
+  z-index: 101;
+  height: 110px;
+  padding: 8px 0px;
+  background: $backgroundLightenColor;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  transition: all 0.2s ease-in;
+  visibility: visible;
+
+  &.active {
+    opacity: 1;
+  }
+  &.hidden {
+    display: flex !important;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .progress-container {
+    display: block;
+    flex: 1;
+
+  }
+
+  .control {
+    flex: 1;
+    color: $textSecondaryColor;
+    .active {
+      color: $primaryColor;
+
+      i {
+        text-shadow: 0px 0px 10px $primaryColor;
+      }
+
+    }
+
+  }
+
+  .volume-progress {
+    cursor: pointer;
+    height: 5px;
+    margin-left: 15px;
+    margin-right: 5px;
+    margin-bottom: 0;
+  }
+
+}

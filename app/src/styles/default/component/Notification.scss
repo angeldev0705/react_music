@@ -1,0 +1,59 @@
+
+.notifications-wrapper {
+
+  .notification {
+
+    width: 100%;
+    position: relative;
+    margin: 10px 0px 0px;
+    display: block;
+    color: rgba($primaryTextColor, 0.8) !important;
+    opacity: 1;
+    border-radius: 4px !important;
+    transition: 0.3s ease-in-out !important;
+    border: none !important;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3) !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+    height: 40px !important;
+    background-color: rgba($backgroundColor, 0.8) !important;
+
+    &.notification-default {
+      background-color: rgba($backgroundColor, 0.8) !important;
+    }
+    &.notification-info {
+      background-color: rgba($infoColor, 0.8) !important;
+    }
+    &.notification-success {
+      background-color: rgba($successColor, 0.8) !important;
+    }
+    &.notification-warning {
+      background-color: rgba($warningColor, 0.8) !important;
+    }
+    &.notification-danger {
+      background-color: rgba($dangerColor, 0.8) !important;
+    }
+
+    .notification-title {
+
+    }
+
+    .notification-message {
+
+    }
+    .notification-dismiss {
+      background-color: transparent !important;
+      color: rgba($backgroundColor, 0.6) !important;
+
+    }
+
+    .notification-action-wrapper {
+
+      .notification-action-button {
+
+      }
+    }
+
+  }
+
+}

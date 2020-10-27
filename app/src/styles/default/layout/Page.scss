@@ -1,0 +1,201 @@
+.page-title {
+  display: block;
+  padding-left: 15px;
+  padding-right: 10px;
+
+  //clear: both;
+  // overflow: hidden;
+  // background: $backgroundSecondaryColor;
+  background: linear-gradient($backgroundSecondaryColor, rgba($backgroundSecondaryColor, 0));
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 30px !important;
+    font-weight: lighter;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    line-height: 35px;
+    // clear: both;
+  }
+  .highlight {
+    color: $primaryColor;
+  }
+
+  > .icon {
+    display: none;
+  }
+
+  @media (max-width: $screen-sm) {
+    background: $backgroundColor;
+    color: $textColor;
+    display: flex;
+    margin: 0;
+    padding: 20px 20px;
+    width: 100%;
+    z-index: 3;
+    text-align: left;
+    height: 60px;
+    opacity: 1;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+
+    &.shadow {
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    &.off {
+      margin-top: -45px;
+    }
+
+    &.primary {
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    &.translucent {
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) !important;
+      color: $primaryTextColor;
+      .icon {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        color: $primaryTextColor !important;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        padding-top: 0;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .btn-group {
+      order: 1;
+      margin-right: -15px;
+    }
+
+    .btn {
+      border-color: transparent;
+      box-shadow: none;
+      color: $textColor;
+      float: right;
+      background: transparent;
+      margin: 0;
+      padding: 20px 10px;
+      margin-left: -10px;
+      margin-top: -19px;
+      margin-bottom: -20px;
+      padding-right: -10px;
+      border: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        border: none !important;
+        background: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+        .icon {
+          color: $textColor;
+          opacity: 0.7;
+        }
+      }
+      .icon {
+        color: $primaryColor;
+        margin: 0;
+        padding: 0;
+        font-size: 29px;
+      }
+
+      .caption {
+        display: none;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      font-size: 18px !important;
+      line-height: 20px;
+      padding: 0;
+      font-weight: normal;
+      @include text-overflow();
+      flex: 1;
+
+    }
+
+    .icon {
+      line-height: 20px;
+      display: inline-block;
+      float: left;
+      margin-right: 0;
+      padding: 20px;
+      margin-left: -20px;
+      margin-top: -20px;
+      margin-bottom: -20px;
+      padding-left: 15px;
+      cursor: pointer;
+      color: $primaryColor;
+    }
+  }
+}
+
+.page-subtitle {
+  display: block;
+  padding-left: 15px;
+  text-align: left;
+  margin-bottom: 10px;
+  clear: both;
+  overflow: hidden;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 20px !important;
+    font-weight: lighter;
+    padding-top: 7px;
+    line-height: 100%;
+    padding-bottom: 0;
+    margin: 0;
+  }
+  .highlight {
+    color: $primaryColor;
+  }
+
+  @media (max-width: $screen-sm) {
+
+    clear: both;
+    display: flex;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: $backgroundColor;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    color: $textColor;
+    margin-bottom: 0;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      font-size: 16px !important;
+      line-height: 20px;
+      padding-top: 0;
+      font-weight: normal;
+      @include text-overflow();
+      flex: 1;
+
+    }
+
+    .btn-group {
+      float: right;
+      order: 1;
+    }
+
+    .btn {
+
+      .icon {
+        margin-right: -6px;
+      }
+
+      .caption {
+        display: none;
+
+      }
+    }
+
+  }
+}
+

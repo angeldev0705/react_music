@@ -1,0 +1,91 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+    name: setbeat-client
+    namespace: setbeat
+data:
+    default.conf: |-
+
+        server {
+            listen       4000 default_server;
+            server_name  localhost;
+            root   /www;
+
+            error_log /var/log/nginx/client.log;
+            access_log /dev/null;
+
+            charset utf-8;
+
+            error_page 404 /index.html;
+            index index.html;
+
+            location ~ /\. {
+                deny all;
+            }
+
+            location ~ \.map$ {
+                deny all;
+                return 404;
+            }
+
+            location /sitemap.xml {
+                expires    max;
+                proxy_set_header Host api-beta.setbeat.dev;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_pass http://api-server:8019/sitemap.xml;
+            }
+
+            location / {
+                  rewrite  ^/directory/(?<directory>.*)$  /?directory=$directory  permanent;
+                  rewrite  ^/musica/letra/(?<letter>.*)$  /?letter=$letter  permanent;
+                  rewrite  ^/musica/(?<artist>.*)/(?<song>.*)$  /$artist/$song  permanent;
+                  rewrite  ^/musica/(?<artist>.*)$  /$artist  permanent;
+                  rewrite  ^/search$  /descargar/$arg_q  permanent;
+
+                  try_files $uri @prerender;
+
+                  if ($request_uri !~ /){
+                      expires max;
+                  }
+            }
+
+            location @prerender {
+
+                  set $prerender 0;
+                  if ($http_user_agent ~* "Googlebot|downerbot|Woo|Rank|WooRank|Bingbot|MSNBot|AdIdxBot|BingPreview|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator") {
+                      set $prerender 1;
+                  }
+                  if ($args ~ "_escaped_fragment_") {
+                      set $prerender 1;
+                  }
+                  if ($http_user_agent ~ "Prerender") {
+                      set $prerender 0;
+                  }
+                  if ($uri ~ "\.(js|css|xml|appcache|less|png|jpg|jpeg|gif|pdf|doc|txt|ico|rss|zip|mp3|rar|exe|wmv|doc|avi|ppt|mpg|mpeg|tif|wav|mov|psd|ai|xls|mp4|m4a|swf|dat|dmg|iso|flv|m4v|torrent|ttf|woff)") {
+                      set $prerender 0;
+                  }
+
+                  if ($prerender = 1) {
+                      rewrite .* /$scheme://$host$request_uri? break;
+                      proxy_pass http://render-server:8018;
+                  }
+
+                  set $isHome "A${prerender}";
+                  if ($request_uri = /){
+                      set $isHome "B${prerender}";
+                  }
+
+                  if ($isHome = "B0") {
+                      rewrite .* /index.html break;
+                  }
+                  if ($isHome = "A0") {
+                      rewrite .* /index.nocache.html break;
+                  }
+            }
+
+            location ~* ^.+\.(css|js|jpg|jpeg|gif|png|ico|gz|svg|svgz|ttf|otf|woff|eot|mp4|ogg|ogv|webm)$ {
+                expires max;
+                access_log off;
+            }
+
+        }

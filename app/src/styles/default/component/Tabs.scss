@@ -1,0 +1,131 @@
+
+.tab-content {
+  margin-top: 0px;
+
+  @media (max-width: $screen-sm) {
+
+    margin-top: 47px;
+  }
+}
+
+ul[role=tablist] {
+
+  //FIXME aqui deberia mostrar un scroll para el usuario
+  //overflow-x: hidden;
+  //overflow-y: hidden;
+  //overflow-scrolling: touch;
+  //-webkit-overflow-scrolling: touch;
+
+  @media (max-width: $screen-sm) {
+
+    left: 0px;
+    width: 100%;
+    position: fixed;
+    top: 59px;
+  }
+}
+
+.nav-tabs {
+  border-bottom: $borderTabsWidth solid transparent;
+  padding-left: 10px;
+  z-index: 1;
+  position: relative;
+
+  @media (max-width: $screen-sm) {
+    background: $backgroundColor;
+    color: $textColor;
+    border-bottom-color: transparent;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
+    top: 0px;
+  }
+
+  > li {
+    margin-bottom: -$borderTabsWidth;
+
+    @media (max-width: $screen-sm) {
+      display: flex;
+      flex: 1;
+    }
+
+    > a {
+      color: $textSecondaryColor;
+      text-transform: uppercase;
+      border-width: $borderTabsWidth;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: all 0.2s;
+
+      padding: 20px 15px;
+      border-left: none !important;
+      border-right: none !important;
+
+      .icon {
+        line-height: 0px;
+        top: 4px;
+        position: relative;
+        //font-size: 12px;
+      }
+
+      @media (max-width: $screen-sm) {
+        color: rgba($textColor, 0.9);
+        border-radius: 0;
+        text-align: center;
+        padding: 10px 10px;
+        padding-top: 14px;
+        flex: 1;
+        margin: 0;
+        border: none !important;
+        //@include text-overflow();
+        font-weight: normal;
+        transition: all 0.2s ease-in-out;
+        border-bottom: 3px solid $backgroundColor !important;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+        background-color: transparent;
+        color: $textColor;
+
+        border-color: transparent transparent $borderTabsColor;
+
+        @media (max-width: $screen-sm) {
+          background-color: transparent;
+          color: $primaryColor;
+          border-bottom: 3px solid $primaryColor !important;
+        }
+      }
+    }
+
+    &.active {
+
+      .icon {
+        color: $primaryColor;
+      }
+      > a,
+      > a:hover,
+      > a:active,
+      > a:focus {
+        color: $primaryColor;
+        background-color: transparent;
+        border: $borderTabsWidth solid transparent;
+        border-bottom-color: $borderTabsColor;
+
+        @media (max-width: $screen-sm) {
+          color: $textColor;
+          border-color: transparent;
+          border-bottom: 3px solid $primaryColor !important;
+        }
+      }
+
+    }
+  }
+}
+
+

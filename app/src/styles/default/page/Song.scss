@@ -1,0 +1,363 @@
+
+.song-list-container {
+  display: flex;
+  margin-bottom: 0px;
+  background: $backgroundColor;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+
+  table {
+    margin-bottom: 0px;
+  }
+
+  &.middle {
+    margin: 0px;
+    border-radius: 4px;
+    margin-top: 0px;
+  }
+
+  @media (max-width: $screen-sm) {
+    display: block;
+    box-shadow: none;
+    background: none;
+  }
+  .ads {
+    order: 2;
+    flex: none;
+  }
+  > div {
+    flex: 1;
+  }
+
+  .song-list {
+    width: 100% !important;
+  }
+}
+
+.song-list {
+  border: none !important;
+  z-index: 3;
+
+  @media (max-width: $screen-sm) {
+    z-index: 1;
+    position: relative;
+  }
+
+  > thead > tr > th {
+    color: $textSecondaryColor;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size: 14px;
+    background: linear-gradient($backgroundColor, $backgroundDarkenColor);
+  }
+  > thead > tr > th {
+    vertical-align: middle;
+    border-bottom: 2px solid $borderSongList;
+    text-align: center;
+
+    &.song {
+      text-align: left;
+    }
+
+    &.artist {
+      text-align: left;
+
+    }
+
+  }
+
+  tbody > tr {
+
+    &.active {
+
+      > td {
+        background: $primaryDarkenColor;
+        opacity: 1 !important;
+        color: $primaryTextColor;
+
+        a {
+          color: $primaryTextColor !important;
+        }
+      }
+
+    }
+
+    &:hover {
+      > td {
+        &.addAll {
+          .karaoke {
+            opacity: 0;
+          }
+
+          .play {
+            opacity: 1;
+            color: $primaryColor;
+          }
+        }
+
+        &.add {
+          opacity: 1;
+        }
+
+        &.options i {
+          opacity: 1;
+        }
+      }
+    }
+
+    td {
+      vertical-align: middle;
+      border-bottom: 1px solid $borderSongList;
+
+      text-align: center;
+      font-size: 14px;
+      color: $textSecondaryColor;
+      font-weight: lighter;
+      position: relative;
+
+      &.addAll {
+        width: 35px;
+        padding: 4px;
+        padding-left: 14px;
+        .icon {
+          text-align: center;
+          cursor: pointer;
+        }
+
+        .karaoke {
+          opacity: 0.3;
+          position: absolute;
+          color: $textSecondaryColor;
+          text-align: center;
+        }
+
+        .play {
+          opacity: 0;
+        }
+      }
+      &.pause {
+        padding: 4px;
+        padding-left: 14px;
+        .icon {
+          cursor: pointer;
+        }
+      }
+
+      &.delete {
+        padding: 4px;
+        padding-right: 2px;
+        padding-left: 11px;
+        width: 35px;
+        color: #aa4749;
+        .icon {
+          font-size: 17px;
+        }
+      }
+      &.add {
+        width: 35px;
+        padding: 3px;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+      &.favourite {
+        width: 35px;
+        padding: 3px;
+        opacity: 1;
+        cursor: pointer;
+      }
+      &.download {
+        width: 40px;
+      }
+      &.options .more {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+
+      &.song {
+        font-weight: normal;
+        text-align: left;
+        color: $textColor;
+        cursor: pointer;
+
+        a {
+          color: $textColor;
+          text-decoration: none;
+        }
+      }
+
+      &.artist {
+        font-weight: normal;
+        text-align: left;
+
+        a {
+          color: $textSecondaryColor;
+
+          &:hover {
+            color: $textColor;
+          }
+        }
+
+      }
+
+      &.options {
+        padding: 0;
+        width: 40px;
+
+        > .more-option {
+          text-align: center !important;
+        }
+
+      }
+
+    }
+  }
+}
+
+.song-item {
+  display: flex;
+  flex-direction: row;
+  background: $backgroundColor;
+  border-bottom: 1px solid darken($backgroundLightenColor, 3%);
+
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+
+  &:hover {
+
+    .options {
+      .remove-option {
+        display: inline-block !important;
+      }
+    }
+    .karaoke {
+    }
+
+  }
+  &.active {
+    transition: all 0.3s;
+  }
+
+  &:focus,
+  &.active {
+
+    background: $primaryDarkenColor;
+
+    .info {
+      .song {
+        color: $primaryTextColor;
+      }
+      .artist {
+        color: $primaryTextColor;
+      }
+    }
+    .options {
+
+      .icon {
+        color: $primaryTextColor;
+      }
+    }
+
+  }
+
+  a {
+    flex: 1;
+    text-align: left;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-right: 50px;
+    .info {
+      text-align: left;
+      position: relative;
+      display: block;
+      flex: 1;
+      overflow: hidden;
+      flex-direction: row;
+
+      .song {
+        color: $textColor;
+        //@include text-overflow();
+      }
+      .artist {
+        color: $textSecondaryColor;
+        opacity: 0.7;
+        //@include text-overflow();
+      }
+    }
+
+    .karaoke {
+      color: $textSecondaryColor;
+      opacity: 0.4;
+      padding-left: 8px;
+      padding-right: 0px;
+    }
+    .image {
+      display: block;
+      width: 50px;
+      margin-right: 5px;
+      height: 50px;
+      img {
+
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+  }
+
+  .options {
+    align-items: center;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    .more {
+
+      color: $textSecondaryColor;
+      opacity: 0.5;
+      line-height: 50px;
+      height: 50px;
+      padding: 0px 8px 0px 10px !important;
+      vertical-align: middle;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-self: center;
+    }
+
+    .remove-option {
+      display: none;
+      cursor: pointer;
+      padding: 0px 8px 0px 8px;
+      margin-top: 2px;
+      line-height: 45px;
+      border-radius: 4px;
+      background: $backgroundColor !important;
+      .icon {
+        font-size: 18px;
+        top: 4px;
+        position: relative;
+        color: $textColor !important;
+      }
+
+      &:hover {
+        background: $backgroundDarkenColor;
+        .icon {
+          color: $textSecondaryColor !important;
+        }
+      }
+    }
+    .more-option {
+      display: block;
+      vertical-align: middle;
+      float: right;
+    }
+  }
+  &:hover {
+
+  }
+}

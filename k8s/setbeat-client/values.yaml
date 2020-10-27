@@ -1,0 +1,54 @@
+
+
+replicaCount: 1
+
+image: registry.gitlab.com/daustinsac/setbeat-client/setbeat
+pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - name: gitlab
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  name:
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: LoadBalancer
+  port: 4000
+
+ingress:
+  enabled: true
+  annotations: 
+    cert-manager.io/cluster-issuer: letsencrypt
+  hosts:
+    - host: www.setbeat.dev
+      paths: [/]
+    - host: setbeat.dev
+      paths: [/]
+  tls: 
+    - secretName: setbeat-client-cert
+      hosts:
+      - www.setbeat.dev
+      - setbeat.dev
+
+
+resources: {}
+#   limits:
+#     cpu: 100m
+#     memory: 128Mi
+#   requests:
+#     cpu: 100m
+#     memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,32 @@
+apiVersion: skaffold/v2alpha4
+kind: Config
+build:
+  artifacts:
+  - image: registry.gitlab.com/daustinsac/setbeat-client/setbeat
+  tagPolicy:
+    sha256: {}
+  local:
+    push: false
+deploy:
+  helm:
+    releases:
+    - name: setbeat-client
+      chartPath: k8s/setbeat-client
+      valuesFiles:
+      - k8s/setbeat-client/values.yaml
+      values:
+        image: registry.gitlab.com/daustinsac/setbeat-client/setbeat
+      namespace: setbeat
+  kubectl:
+    manifests:
+    - k8s/local/*
+profiles:
+- name: dev
+  build:
+    artifacts:
+    - image: registry.gitlab.com/daustinsac/setbeat-client/setbeat
+      docker:
+        buildArgs:
+          env_file: k8s/local/.env
+  activation:
+  - env: ENV=dev

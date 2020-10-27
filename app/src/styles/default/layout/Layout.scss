@@ -1,0 +1,26 @@
+@media (min-width: $screen-sm+1) {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: $backgroundSecondaryColor;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 3px solid $backgroundSecondaryColor;
+    background: rgba($primaryColor, 0.7);
+  }
+
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba($primaryColor, 0.5);
+  }
+}
+
+hr {
+  border-top: 1px solid $borderBlocksColor;
+}

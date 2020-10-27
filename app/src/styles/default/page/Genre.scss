@@ -1,0 +1,168 @@
+
+.genre-list-container {
+  display: flex;
+
+  @media (max-width: $screen-sm) {
+    display: block;
+  }
+  .ads {
+    order: 2;
+    flex: none;
+  }
+  > div {
+    flex: 1;
+  }
+
+  .genre-list {
+    width: 100% !important;
+  }
+}
+
+.genre-list {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  > .col-xs-6,
+  > .col-sm-3,
+  > .col-lg-2,
+  > .col-xl-2 {
+    margin: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    &:last-child {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: $screen-sm) {
+    background: none;
+  }
+
+}
+
+.genre-item {
+  background: $backgroundColor;
+  padding: 5px;
+  border-radius: 4px;
+  margin-top: 10px;
+  //width: 100%;
+  display: block;
+  //margin-left: 5px;
+  //margin-right: 5px;
+  transform: translateZ(0);
+  transition: all 0.2s;
+
+  @media (max-width: $screen-sm) {
+    //width: 150px;
+    padding: 0;
+    background: $backgroundLightenColor;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+
+    .icon {
+      display: inline-block;
+      float: left;
+      font-size: 40px;
+      line-height: 40px;
+    }
+    .name {
+      float: left;
+      width: auto;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+
+    background: $backgroundDarkenColor;
+
+    .body {
+
+      .name {
+        color: $textInvertedColor;
+
+      }
+      .subtitle {
+        color: $textInvertedColor;
+      }
+    }
+
+    .icon {
+      color: $textInvertedColor
+    }
+  }
+
+  .icon {
+    padding: 6px;
+    padding-right: 0;
+    color: rgba($textColor, 0.7);
+
+    @media (max-width: $screen-sm) {
+
+      color: $primaryColor;
+    }
+  }
+
+  .body {
+    flex: 1;
+    color: $textColor;
+    text-align: left;
+    padding: 0px;
+    padding-left: 10px;
+    @include text-overflow();
+
+    @media (max-width: $screen-sm) {
+
+      padding: 5px;
+
+    }
+    .name {
+      color: $textSecondaryColor;
+      @include text-overflow();
+      width: 100%;
+      display: block;
+      font-size: 18px;
+      font-weight: lighter;
+      @media (max-width: $screen-sm) {
+
+        font-size: 13px;
+        font-weight: normal;
+        padding: 0px;
+
+      }
+
+    }
+    .subtitle {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0;
+      margin: 0;
+      margin-top: 2px;
+      color: $textSecondaryColor;
+      @include text-overflow();
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: normal;
+      opacity: 0.6;
+
+      @media (max-width: $screen-sm) {
+
+        font-size: 11px;
+        font-weight: normal;
+        padding: 0px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,78 @@
+.toolbar {
+  position: relative;
+  box-shadow: 3px 0px 4px rgba(0, 0, 0, 0.2);
+  background: $backgroundSecondaryColor;
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  align-items: center;
+  align-content: center;
+  height: $toolbarHeight;
+
+  .breadcrumb {
+    list-style: none;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      color: $textSecondaryColor;
+
+      &.parent {
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      &.active {
+        color: $textColor;
+        a {
+          color: $textColor;
+        }
+      }
+
+      &.split {
+        > span {
+          color: rgba($textSecondaryColor, 0.4);
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+
+      &:hover {
+        //color: $primaryColor;
+        a {
+          color: $primaryColor;
+        }
+      }
+
+      > span {
+        padding: 10px;
+      }
+
+      > a {
+        color: $textSecondaryColor;
+        padding: 10px;
+        text-decoration: none;
+
+      }
+    }
+  }
+
+  .search-container {
+    width: 190px;
+    margin: 0;
+    .search-control {
+      border: none !important;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      line-height: 14px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+}

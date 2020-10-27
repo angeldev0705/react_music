@@ -1,0 +1,122 @@
+
+.category-list-container {
+  display: flex;
+
+  @media (max-width: $screen-sm) {
+    display: block;
+  }
+  .ads {
+    order: 2;
+    flex: none;
+  }
+  > div {
+    flex: 1;
+  }
+
+  .category-list {
+    width: 100% !important;
+  }
+}
+
+.category-list {
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  //text-align: center;
+
+}
+
+.category-item {
+  //background: $backgroundColor;
+  display: block;
+  transform: translateZ(0);
+  transition: all 0.2s;
+  min-width: 160px;
+
+  .margin {
+    padding: 10px;
+    //padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 0;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.2s;
+    background: #444;
+    //-webkit-filter: blur(2px);
+  }
+
+  a {
+    text-decoration: none;
+    border-radius: 6px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    &:hover {
+      .image {
+        //-webkit-filter: blur(0px);
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  .header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+  }
+  .body {
+    flex: 1;
+    z-index: 10;
+    color: $primaryTextColor;
+    text-align: left;
+    padding: 10px;
+    padding-top: 20px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    @include text-overflow();
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+
+    .name {
+      color: $primaryTextColor;
+      @include text-overflow();
+      width: 100%;
+      display: block;
+
+      font-size: 16px;
+      font-weight: normal;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+
+    }
+    .subtitle {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0;
+      margin: 0;
+      margin-top: 2px;
+      color: $secondaryTextColor;
+      @include text-overflow();
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: normal;
+      opacity: 0.6;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+
+    }
+  }
+}
+

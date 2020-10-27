@@ -1,0 +1,197 @@
+@media (min-width: $screen-sm+1) {
+
+  .landing-background {
+    background-position: top;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: blur(40px);
+    opacity: 0.2;
+    &:after {
+      content: '';
+      background: rgba($backgroundColor, 0);
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .landing-container {
+    z-index: 2;
+    position: relative;
+    clear: both;
+
+    .song-list-container {
+      &.middle {
+        margin-top: 5px;
+      }
+    }
+
+    .nav-tabs {
+      margin-top: 20px;
+      border-bottom: 0;
+      //background: linear-gradient(rgba(#000, 0.0), rgba(#000, 0.1));
+      //background: $backgroundColor;
+
+      li {
+
+        margin-bottom: 0;
+
+        &.active {
+          a {
+            background: $backgroundColor;
+            color: $textSecondaryColor;
+            text-shadow: none;
+            //box-shadow: 0 -2px 3px rgba(0,0,0,0.2);
+          }
+        }
+
+        &:hover {
+          a {
+            background: $backgroundDarkenColor;
+            color: $textSecondaryColor;
+            text-shadow: none;
+          }
+        }
+
+        a {
+          color: $primaryTextColor;
+          background: rgba($backgroundColor, 0.9);
+          border-top-width: 0 !important;
+          border-left-width: 0 !important;
+          border-right-width: 0 !important;
+          border-bottom-color: transparent !important;
+          text-shadow: 1px 1px 3px rgba(#000, 0.6);
+          transition: all 0.2s ease-in;
+        }
+      }
+    }
+  }
+
+  .landing-header {
+
+    display: flex;
+    padding: 10px;
+    padding-bottom: 5px;
+    //background: linear-gradient(rgba($backgroundDarkenColor, 0.6), rgba($backgroundDarkenColor, 0.0));
+
+    .profile {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      .image {
+        width: 100px;
+        height: 100px;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      .info {
+
+        padding-left: 10px;
+        text-shadow: 1px 1px 3px rgba(#000, 0.6);
+
+        a {
+
+          color: $primaryTextColor;
+        }
+        .type {
+          color: $primaryTextColor;
+          text-transform: uppercase;
+        }
+        .title {
+          color: $primaryTextColor;
+          font-weight: lighter;
+          margin-top: 2px;
+        }
+
+        .options {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+        }
+
+      }
+    }
+
+    .options {
+      flex: 1;
+
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+
+        li {
+          display: inline-block;
+
+          &:first-child {
+            a {
+              border-bottom-left-radius: 4px;
+              border-top-left-radius: 4px;
+            }
+          }
+          &:last-child {
+            a {
+              border-bottom-right-radius: 4px;
+              border-top-right-radius: 4px;
+            }
+          }
+
+          &:hover,
+          &:active,
+          &.active {
+            a {
+              color: $textColor;
+              background: $backgroundColor;
+            }
+          }
+
+          &:active,
+          &.active {
+            a {
+              color: rgba($textSecondaryColor, 0.9);
+              background: $backgroundLightenColor;
+            }
+          }
+
+          a {
+            display: flex;
+            padding: 10px 15px;
+            color: $textSecondaryColor;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: $backgroundTableHeader;
+            align-content: center;
+            align-items: center;
+
+            .icon {
+              + span {
+                margin-left: 4px;
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+  }
+}

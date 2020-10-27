@@ -1,0 +1,10 @@
+[include]
+./app/src/
+
+[ignore]
+.*/dist/.*
+
+[libs]
+./node_modules/
+
+[options]

@@ -1,0 +1,32 @@
+
+.container {
+  margin-top: 10px;
+  overflow-y: hidden;
+  height: 360px;
+}
+
+.phone {
+  width: 200px;
+  position: relative;
+}
+
+.phoneLeft,
+.phoneRight {
+  width: 180px;
+  margin-bottom: 0px;
+
+}
+
+.phoneLeft {
+  margin-right: -80px;
+  z-index: 1;
+}
+
+.phoneRight {
+  margin-left: -80px;
+  z-index: 1;
+}
+
+.phoneCenter {
+  z-index: 20;
+}

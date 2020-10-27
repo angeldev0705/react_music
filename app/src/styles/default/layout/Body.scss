@@ -1,0 +1,24 @@
+
+body {
+  color: $textColor;
+  overflow: hidden;
+  font-family: "Roboto", "Helvetica", "Lucida Grande", "Calibri", "Arial", sans-serif;
+
+  @media (max-width: $screen-sm) {
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+    background: $backgroundDarkenColor;
+  }
+
+}
+
+.progress-bar-handle {
+  background: $textColor;
+
+  &:hover {
+
+    background: $textColor;
+  }
+}

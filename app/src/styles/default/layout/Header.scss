@@ -1,0 +1,273 @@
+
+.logo {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+
+  //padding-bottom:0;
+  text-align: center;
+  position: relative;
+  color: $primaryColor;
+  opacity: 0.9;
+  min-height: 60px;
+  @include text-overflow();
+
+  @if $inverted == true {
+    background: url('../../images/logo_inverted.png?v1') no-repeat center;
+  } @else {
+    background: url('../../images/logo_colored.png?v1') no-repeat center;
+  }
+
+  @media only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    @if $inverted == true {
+      background: url('../../images/logo_inverted@2x.png?v1') no-repeat center;
+    } @else {
+      background: url('../../images/logo_colored@2x.png?v1') no-repeat center;
+    }
+    background-size: 64px 64px;
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+  }
+
+  @media (max-width: $screen-sm) {
+    background-size: 40px 40px;
+    height: auto;
+    background-position: 10px center;
+    padding: 20px 15px;
+    margin: 0;
+    display: block;
+    border-bottom: 1px solid $backgroundSecondaryColor;
+    margin-bottom: 5px;
+  }
+
+  i {
+    font-size: 50px;
+    vertical-align: middle;
+    padding-top: 0px;
+    display: block;
+    color: $primaryColor;
+    visibility: hidden;
+
+    @media (max-width: $screen-sm) {
+      font-size: 40px;
+      padding-top: 10px;
+      display: none;
+    }
+    @media (min-width: $screen-lg) {
+      font-size: 60px;
+    }
+  }
+
+  span {
+    display: none;
+    padding: 5px;
+    @media (max-width: $screen-sm) {
+      font-size: 16px;
+      display: block;
+      text-align: left;
+      line-height: 20px;
+      padding: 0;
+      margin-left: 40px;
+      color: $textColor;
+      //text-transform: uppercase;
+      @include text-overflow();
+    }
+  }
+}
+
+.header {
+
+  @media (max-width: $screen-sm) {
+
+    position: fixed;
+    display: block;
+    text-align: left;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 2001;
+    background: transparent;
+    transition: background 0.3s ease-in-out;
+    //transform: translateX(-100px);
+
+    &.active {
+      background: rgba(0, 0, 0, 0.2);
+      display: block;
+      left: 0%;
+
+      width: 100%;
+      height: 100%;
+
+      .header-container {
+        left: 0;
+        animation-name: slideInLeft;
+        animation-duration: 0.5s;
+        animation-fill-mode: both;
+        z-index: 2;
+        //transform: translateX(0px);
+
+      }
+
+      .header-overlay {
+        z-index: 1;
+        display: block;
+        //background: red;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .header-overlay {
+      display: none;
+      cursor: pointer;
+    }
+
+    .header-container {
+      position: fixed;
+      background: $backgroundColor;
+      width: 80%;
+      min-width: 200px;
+      max-width: 300px;
+      height: 100%;
+      left: -100%;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.2);
+      overflow: auto;
+      overflow-x: hidden;
+      overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch;
+
+    }
+  }
+
+  .header-container {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .nav-primary {
+      flex: 1;
+    }
+
+    .nav-profile {
+
+    }
+
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+
+      &.active {
+        background: $backgroundColor;
+        a {
+          color: $primaryColor;
+        }
+      }
+
+      a {
+        color: lighten($textSecondaryColor, 20%);
+        display: block;
+        padding: 4px 2px 4px 2px;
+        font-size: 11px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        @include text-overflow();
+
+        &:hover {
+          background: $backgroundColor;
+        }
+
+        > i {
+          color: lighten($textSecondaryColor, 0%);
+        }
+
+        @media (max-width: $screen-sm) {
+          align-items: center;
+          text-align: left;
+          justify-content: flex-start;
+          display: flex;
+          &:hover {
+            background: $primaryDarkenColor;
+            i, span {
+              color: $primaryTextColor !important;
+            }
+          }
+        }
+
+        @media (max-width: $screen-sm) {
+          font-size: 14px;
+          padding: 16px 6px;
+        }
+
+        @media (min-width: $screen-lg) {
+          font-size: 12px;
+        }
+        @media (min-width: $screen-xl) {
+          font-size: 13px;
+        }
+
+        > i,
+        > span {
+          transition: all 0.2s;
+        }
+
+        > i {
+          display: block;
+          font-size: 25px;
+          padding-top: 5px;
+
+          @media (max-width: $screen-sm) {
+            font-size: 20px;
+            margin: 0;
+            line-height: 24px;
+            margin-left: 10px;
+            margin-right: 15px;
+            display: inline-block;
+          }
+          @media (min-width: $screen-lg) {
+            font-size: 30px;
+          }
+          @media (min-width: $screen-xl) {
+            font-size: 35px;
+          }
+        }
+
+        > span {
+          margin-top: 2px;
+          margin-bottom: 1px;
+          display: block;
+
+          @media (max-width: $screen-sm) {
+            margin: 0;
+            line-height: 20px;
+            display: inline-block;
+          }
+          @media (min-width: $screen-lg) {
+            margin-bottom: 15px;
+          }
+          @media (min-width: $screen-xl) {
+            margin-bottom: 20px;
+          }
+        }
+
+        &:hover {
+          i, span {
+            color: $primaryColor;
+          }
+        }
+      }
+    }
+  }
+}

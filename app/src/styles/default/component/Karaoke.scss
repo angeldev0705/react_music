@@ -1,0 +1,86 @@
+
+.karaoke-container {
+
+  z-index: 1;
+  position: relative;
+  display: flex;
+  background: rgba($backgroundColor, 0.5);
+  margin: 0 auto;
+  padding: 0 10px;
+
+  @media (max-width: $screen-sm) {
+    background: transparent;
+  }
+  .lines {
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
+.lines {
+  z-index: 2;
+  position: relative;
+  clear: both;
+  border-radius: 4px;
+  display: block;
+  cursor: default;
+  margin: 0 auto;
+
+  @media (max-width: $screen-xs) {
+    font-size: 25px;
+  }
+  @media (min-width: $screen-xs) and (max-width: $screen-sm) {
+    font-size: 30px;
+  }
+  @media (min-width: $screen-sm) and (max-width: $screen-md) {
+    font-size: 35px;
+  }
+  @media (min-width: $screen-md) and (max-width: $screen-lg) {
+    font-size: 40px;
+  }
+  @media (min-width: $screen-lg) and (max-width: $screen-xl) {
+    font-size: 45px
+  }
+  @media (min-width: $screen-xl) {
+    font-size: 50px;
+  }
+
+  .line {
+
+    display: block;
+    transition: all 0.2s;
+    transform: translateZ(0);
+    will-change: scroll-position, color, opacity, background;
+    color: $textSecondaryColor;
+    text-align: center;
+    opacity: 0.15;
+    min-height: 80px;
+    padding: 20px 10px;
+    border-radius: 10px;
+
+    @media (max-width: $screen-sm) {
+      padding: 10px 5px;
+      color: $primaryTextColor;
+    }
+    &.active {
+      color: $textColor;
+      opacity: 1;
+      background: rgba($backgroundColor, 0.8);
+      @media (max-width: $screen-sm) {
+        background: rgba(0, 0, 0, 0.8);
+        color: $primaryTextColor;
+      }
+    }
+
+    &.next,
+    &.previous {
+      color: $textSecondaryColor;
+      opacity: 0.5;
+      @media (max-width: $screen-sm) {
+        color: $primaryTextColor;
+      }
+    }
+
+  }
+}
+

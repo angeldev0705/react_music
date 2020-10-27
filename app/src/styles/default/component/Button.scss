@@ -1,0 +1,143 @@
+.btn-favourite {
+
+  &.active {
+    .icon {
+      color: #ff5374 !important;
+    }
+  }
+
+  &:hover {
+
+    .icon {
+      color: #ff5374 !important;
+    }
+  }
+}
+
+$btnFacebookColor: #4870ab;
+
+.btn-facebook {
+  border: 2px solid lighten($btnFacebookColor, 2%);
+  color: $primaryTextColor !important;
+  background-color: lighten($btnFacebookColor, 2%);
+
+  &:hover {
+    background-color: darken($btnFacebookColor, 10%);
+    border: 2px solid darken($btnFacebookColor, 10%) !important;
+    color: $primaryTextColor !important;
+  }
+
+  &:visited {
+    border: 2px solid lighten($btnFacebookColor, 2%);
+    color: $primaryTextColor !important;
+
+  }
+
+  &:focus,
+  &:active,
+  &.active {
+    background: $btnFacebookColor !important;
+    border: 2px solid $btnFacebookColor !important;
+    box-shadow: 0 0 5px $btnFacebookColor;
+    color: $primaryTextColor !important;
+  }
+}
+
+.btn-primary {
+  border: 2px solid lighten($primaryColor, 2%);
+  color: $primaryTextColor !important;
+  background-color: lighten($primaryColor, 2%);
+
+  &:hover {
+    background-color: darken($primaryColor, 10%);
+    border: 2px solid darken($primaryColor, 10%) !important;
+    color: $primaryTextColor !important;
+  }
+
+  &:visited {
+    border: 2px solid lighten($primaryColor, 2%);
+    color: $primaryTextColor !important;
+
+  }
+
+  &:focus,
+  &:active,
+  &.active {
+    background: $primaryColor !important;
+    border: 2px solid $primaryColor !important;
+    box-shadow: 0 0 5px $primaryColor;
+    color: $primaryTextColor !important;
+  }
+}
+
+.btn-default {
+  border: 2px solid $borderButton;
+  color: $textSecondaryColor;
+  background-color: $backgroundButton;
+
+  &:hover {
+    background-color: $backgroundButton;
+    border: 2px solid $borderButton !important;
+    color: $primaryColor !important;
+  }
+
+  &:visited {
+    border: 2px solid $borderButton;
+    color: $textSecondaryColor !important;
+
+  }
+
+  &:focus,
+  &:active,
+  &.active {
+    background: $backgroundButton !important;
+    border: 2px solid $borderButton !important;
+    box-shadow: 0 0 5px $primaryColor;
+    color: $primaryColor !important;
+  }
+}
+
+.btn-link {
+  box-shadow: none !important;
+}
+
+.btn {
+
+  font-weight: normal;
+  text-shadow: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: all 0.2s ease-in;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .material-icons {
+    margin-top: 0px;
+    padding: 0;
+    line-height: 18px;
+    font-size: 24px;
+    display: inline-block;
+    float: left;
+  }
+
+  .icon {
+    + span {
+      margin-left: 2px;
+    }
+  }
+
+}
+
+.btn-group .btn + .btn,
+.btn-group .btn + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .btn-group {
+  margin-left: -0px;
+}
+
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group {
+  margin-left: -0px;
+}

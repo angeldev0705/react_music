@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Setbeat</ShortName>
+    <Description>Buscar en Setbeat</Description>
+    <Image width="16" height="16" type="image/x-icon">
+        https://setbeat.com/favicon.ico
+    </Image>
+    <Contact>contacto@setbeat.com</Contact>
+    <Developer>Setbeat</Developer>
+    <Url type="text/html" method="get" template="https://setbeat.com/descargar/{searchTerms}"/>
+    <LongName>Setbeat</LongName>
+    <OutputEncoding>UTF-8</OutputEncoding>
+    <InputEncoding>UTF-8</InputEncoding>
+    <AdultContent>false</AdultContent>
+    <Attribution>
+        D'austin S.A.C. Lima, Perú, All Rights Reserved
+    </Attribution>
+
+</OpenSearchDescription>

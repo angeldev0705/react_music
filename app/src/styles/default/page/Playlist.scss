@@ -1,0 +1,191 @@
+
+.playlist-list-container {
+  display: flex;
+
+  @media (max-width: $screen-sm) {
+    display: block;
+  }
+  .ads {
+    order: 2;
+    flex: none;
+  }
+  > div {
+    flex: 1;
+  }
+
+  .playlist-list {
+    width: 100% !important;
+  }
+}
+
+.playlist-list {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: $backgroundColor;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: $screen-sm) {
+    box-shadow: none;
+    background: none;
+  }
+
+  > .col-sm-6,
+  > .col-lg-3,
+  > .col-xl-3 {
+    //margin: 0;
+    padding-left: 7px;
+    padding-right: 7px;
+    &:last-child {
+      margin-bottom: 10px;
+    }
+  }
+
+}
+
+.playlist-item {
+  background: $backgroundLightenColor;
+  min-height: 55px;
+  margin-top: 10px;
+  border-radius: 4px;
+
+  width: 100%;
+  display: inline-block;
+  //margin-left: 5px;
+  //margin-right: 5px;
+
+  transition: all 0.2s;
+  transform: translateZ(0);
+
+  @media (max-width: $screen-sm) {
+    padding: 0;
+    background: $backgroundLightenColor;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+  }
+
+  .icon {
+    display: inline-block;
+    float: left;
+    font-size: 70px;
+    line-height: 70px;
+    padding: 2px;
+    color: $textColor;
+    opacity: 0.3;
+    @media (max-width: $screen-sm) {
+      font-size: 50px;
+      line-height: 50px;
+    }
+  }
+
+  .body {
+    color: $textColor;
+    display: flex;
+    padding: 5px;
+    padding-left: 0;
+    flex-direction: column;
+    float: left;
+    flex: 1;
+    overflow: hidden;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+
+    .name {
+      color: $textColor;
+      @include text-overflow();
+      width: 100%;
+      display: block;
+      font-size: 16px;
+
+      @media (max-width: $screen-sm) {
+        font-size: 15px;
+      }
+    }
+    .subtitle {
+      color: $textSecondaryColor;
+      @include text-overflow();
+      display: block;
+      background: transparent;
+      box-shadow: none;
+      width: 100%;
+      opacity: 0.7;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      padding: 0;
+      @media (max-width: $screen-sm) {
+        font-size: 10px;
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+.add-to-playlist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  clear: both;
+  height: auto;
+  max-height: 500px;
+
+  overflow: auto;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+
+  .add-to-playlist-item {
+    border-top: 1px solid $backgroundSecondaryColor;
+    cursor: pointer;
+    display: flex;
+    padding: 6px 10px 6px 15px;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 15px;
+
+    &.active {
+      .image {
+        opacity: 1;
+      }
+
+      .options {
+        color: #00A000;
+      }
+    }
+
+    &:hover {
+      background: $backgroundSecondaryColor !important;
+
+      .image {
+        opacity: 1;
+      }
+
+    }
+
+    .image {
+      margin-right: 5px;
+      opacity: 0.5;
+      width: 25px;
+      align-items: center;
+    }
+
+    .name {
+      flex: 1;
+      line-height: 30px;
+    }
+
+    .options {
+
+    }
+
+  }
+}

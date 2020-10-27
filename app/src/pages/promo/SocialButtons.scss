@@ -1,0 +1,36 @@
+
+.social {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  hr {
+    background: rgba(white, 0.1);
+    border: none;
+    height: 1px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+  strong {
+    font-weight: lighter;
+  }
+
+  .socialLinks {
+    margin-top: 5px;
+    a {
+      padding: 10px;
+      margin: 5px;
+      color: #fff;
+      font-size: 70px;
+    }
+
+    .facebook {
+      color: #275caf;
+    }
+
+    .twitter {
+      color: #159ce0;
+    }
+  }
+}

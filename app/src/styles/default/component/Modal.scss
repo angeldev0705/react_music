@@ -1,0 +1,124 @@
+.modal-dialog {
+  .modal-content {
+    background: $backgroundModal;
+    color: $textColor;
+    border: none;
+
+    .modal-title {
+      font-weight: lighter;
+    }
+
+    .modal-footer,
+    > hr {
+      border-top: 1px solid transparent;
+    }
+    .modal-header {
+      border-bottom: 1px solid transparent;
+
+      .modal-header-options {
+        float: right;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.modal-backdrop {
+  background: $backgroundDarkenColor;
+}
+
+.modal {
+}
+
+.modal-open {
+  .app {
+    //FIXME esto casua lagg
+    //filter: blur(2px);
+    //opacity: 0.5;
+  }
+}
+
+.share-modal,
+.download-modal {
+
+  .social-fanpage {
+
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .song-info {
+    text-align: center;
+    margin: 0 auto;
+
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+
+    .image {
+
+      img {
+        width: 150px;
+        height: 150px;
+        box-shadow: 0px 0px 20px rgba($backgroundSecondaryColor, 0.5);
+        margin-bottom: 10px;
+
+      }
+    }
+    .song {
+      font-size: 16px;
+      color: $textColor;
+      @include text-overflow();
+
+      a {
+        color: $textColor;
+      }
+    }
+    .artist {
+      font-size: 14px;
+      color: $textSecondaryColor;
+      @include text-overflow();
+    }
+    a {
+      color: $textSecondaryColor;
+    }
+  }
+
+  .option {
+    color: $textSecondaryColor;
+    margin-top: 20px;
+
+    @media (max-width: $screen-sm) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.ads-modal {
+
+  .modal-dialog {
+    width: 90%;
+    max-width: 1024px;
+  }
+
+  .modal-body {
+    padding: 0 !important;
+  }
+
+  iframe {
+    width: 100%;
+    border: none;
+    background: transparent;
+    height: 600px;
+    overflow: hidden !important;
+  }
+
+}
+
+.add-to-playlist-modal {
+  .modal-body {
+    padding: 0;
+
+  }
+}

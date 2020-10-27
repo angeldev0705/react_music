@@ -1,0 +1,51 @@
+.ads120x600 {
+  max-width: 120px;
+  max-height: 600px;
+}
+
+.ads160x600 {
+  width: 160px;
+  height: 600px;
+}
+
+.ads728x90 {
+  width: 728px;
+  height: 90px;
+}
+
+.ads300x250 {
+  max-width: 300px;
+  max-height: 250px;
+}
+
+.ads320x50 {
+  max-width: 320px;
+  //max-height: 50px;
+}
+
+.ads234x60 {
+  //max-width: 234px;
+  //max-height: 60px;
+}
+
+.ads468x60 {
+  max-width: 468px;
+  max-height: 60px;
+}
+
+.ads-group {
+  display: flex;
+  align-self: center;
+  flex-wrap: wrap;
+  .ads {
+    display: inline-block;
+  }
+}
+
+.ads {
+  background: transparent;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+

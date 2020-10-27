@@ -1,0 +1,62 @@
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+
+$inverted: true;
+
+$backgroundSecondaryColor: #031125;
+$backgroundColor: darken($backgroundSecondaryColor, 2%);
+$backgroundLightenColor: lighten($backgroundColor, 3%);
+$backgroundDarkenColor: darken($backgroundColor, 0%);
+//
+$primaryColor: #05ffee;
+$primaryDarkenColor: darken($primaryColor, 10%);
+$secondaryColor: #222;
+//
+$primaryTextColor: #fff;
+$secondaryTextColor: #fff;
+//
+$textColor: #fefefe;
+$textSecondaryColor: lighten(#424d5c, 20%);
+//
+$textInvertedColor: $primaryColor;
+$textInvertedSecondaryColor: #f4f4f4;
+
+$borderBlocksColor: #051c3d;
+
+$backgroundNav: $backgroundColor;
+$backgroundPlayer: $backgroundColor;
+
+$backgroundPopover: $backgroundLightenColor;
+$backgroundModal: $backgroundLightenColor;
+$backgroundTableHeader: $backgroundDarkenColor;
+$backgroundLoading: darken($backgroundSecondaryColor, 5%);
+$backgroundButton: lighten($backgroundColor, 2%);
+
+$borderTabsColor: $primaryColor;
+$borderSongList: $backgroundSecondaryColor;
+$borderButton: $backgroundButton;
+
+$scrollbarColor: rgba($backgroundLightenColor, 0.9);
+
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+
+$borderTabsWidth: 3px;
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1300px;
+$screen-xl: 1650px;
+
+$progressHeight: 5px;
+$toolbarHeight: 46px;
+$playerHeight: 140px + 55px + $progressHeight;
+$headerHeight: 60px;
+
+//$primaryColor:         darken(#428bca, 6.5%);
+$successColor: #72e372;
+//$infoColor: #56dde8;
+$infoColor: $primaryColor;
+$warningColor: #ffb853;
+$dangerColor: #f75e5a;
